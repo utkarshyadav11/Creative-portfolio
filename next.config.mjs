@@ -18,10 +18,8 @@ const nextConfig = {
       },
     ],
   },
-  experimental: {
-    reactCompiler: true,
-    typedRoutes: true,
-  },
+  reactCompiler: true,
+  typedRoutes: true,
 };
 
 export default withMDX(nextConfig);

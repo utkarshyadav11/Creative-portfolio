@@ -46,7 +46,7 @@ export const SpotifyPlaying = () => {
       <Flex
         as="button"
         onClick={togglePlay}
-        align="center"
+        vertical="center"
         gap="12"
         padding="4"
         paddingRight="16"
@@ -55,10 +55,15 @@ export const SpotifyPlaying = () => {
         background="surface"
         className="cursor-pointer transition-transform active:scale-95"
       >
-        <Flex position="relative" align="center" justify="center">
+        <Flex position="relative" vertical="center" horizontal="center">
           <motion.div
             animate={{ rotate: isPlaying ? 360 : 0 }}
-            transition={{ duration: 3, repeat: Infinity, ease: "linear", repeatType: "loop" }}
+            transition={{
+              duration: 3,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "linear",
+              repeatType: "loop",
+            }}
             style={{ filter: isPlaying ? "none" : "grayscale(100%)", opacity: isPlaying ? 1 : 0.8 }}
           >
             <Avatar src={song.cover} size="m" />
@@ -67,15 +72,15 @@ export const SpotifyPlaying = () => {
             <Flex
               position="absolute"
               className="inset-0 bg-black/30 rounded-full"
-              align="center"
-              justify="center"
+              vertical="center"
+              horizontal="center"
             >
-              <Icon name="play" size="s" onBackground="white" />
+              <Icon name="play" size="s" onBackground="neutral-strong" />
             </Flex>
           )}
         </Flex>
 
-        <Flex direction="column" align="start">
+        <Flex direction="column" horizontal="start">
           <Text variant="label-default-s" onBackground="neutral-strong">
             {song.title}
           </Text>
@@ -93,7 +98,7 @@ export const SpotifyPlaying = () => {
                 animate={{ height: [4, 16, 4] }}
                 transition={{
                   duration: 0.5 + Math.random() * 0.3,
-                  repeat: Infinity,
+                  repeat: Number.POSITIVE_INFINITY,
                   repeatType: "reverse",
                 }}
               />
