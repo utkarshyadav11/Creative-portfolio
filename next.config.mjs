@@ -20,6 +20,9 @@ const nextConfig = {
   },
   reactCompiler: true,
   typedRoutes: true,
+  turbopack: {
+    root: ".",
+  },
 };
 
 export default withMDX(nextConfig);
