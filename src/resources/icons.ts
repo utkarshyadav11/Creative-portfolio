@@ -65,7 +65,7 @@ import { FaDiscord, FaX, FaThreads } from "react-icons/fa6";
 
 // Helper function to convert Hugeicons to IconType
 // This creates a wrapper component that matches react-icons IconType interface
-const createHugeIcon = (IconDefinition: IconSvgElement, defaultSize: number = 20, scale: number = 1): IconType => {
+const createHugeIcon = (IconDefinition: IconSvgElement, defaultSize = 20, scale = 1): IconType => {
   return React.forwardRef<SVGSVGElement, React.ComponentProps<IconType>>((props, ref) => {
     // Map react-icons props to Hugeicons props
     const { size, color, className, style, ...rest } = props as {

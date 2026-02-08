@@ -1,3 +1,5 @@
+"use client";
+
 import { Button, Column, Heading, Text } from "@once-ui-system/core";
 
 export default function NotFound() {
@@ -9,10 +11,10 @@ export default function NotFound() {
       <Heading marginBottom="l" variant="display-default-xs">
         Page Not Found
       </Heading>
-      <Text marginBottom="l" onBackground="neutral-weak">The page you are looking for does not exist.</Text>
-      <Button href="/">
-        Go Home
-      </Button>
+      <Text marginBottom="l" onBackground="neutral-weak">
+        The page you are looking for does not exist.
+      </Text>
+      <Button href="/">Go Home</Button>
     </Column>
   );
 }

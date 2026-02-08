@@ -1,4 +1,4 @@
-import {
+import type {
   DataStyleConfig,
   DisplayConfig,
   EffectsConfig,
@@ -196,9 +196,9 @@ const schema: SchemaConfig = {
 // social links for schema.org
 const sameAs: SameAsConfig = {
   // TODO: Update with your actual social media profiles
-  // threads: "https://www.threads.com/@yourusername",
+  threads: "",
   linkedin: "https://www.linkedin.com/in/iutkarshyadav/",
-  // discord: "https://discord.com/invite/yourinvite",
+  discord: "",
 };
 
 // social sharing configuration for blog posts

@@ -1,4 +1,4 @@
-import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
+import type { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
 import { Line, Logo, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
@@ -6,7 +6,7 @@ const person: Person = {
   lastName: "Yadav",
   name: `Utkarsh Yadav`,
   role: "Software Developer",
-  avatar: "/images/avatar1.jpg",
+  avatar: "/images/utkarsh.jpg",
   email: "utkarshyadav6745@gmail.com",
   location: "Asia/Kolkata", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: ["Hindi", "English"], // optional: Leave the array empty if you don't want to display languages
