@@ -11,10 +11,11 @@ import {
   Meta,
   Line,
 } from "@once-ui-system/core";
-import { home, about, person, baseURL, routes } from "@/resources";
+import { home, about, person, baseURL, social } from "@/resources";
 import { Mailchimp } from "@/components";
-import { Projects } from "@/components/work/Projects";
-import { Posts } from "@/components/blog/Posts";
+import AvatarGlow from "@/components/about/AvatarGlow";
+import React from "react";
+import { Icon, IconButton, Tag } from "@once-ui-system/core";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -28,7 +29,7 @@ export async function generateMetadata() {
 
 export default function Home() {
   return (
-    <Column maxWidth="m" gap="xl" paddingY="12" horizontal="center">
+    <Column fillWidth gap="xl" paddingY="12" horizontal="center">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -42,68 +43,119 @@ export default function Home() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Column fillWidth horizontal="center" gap="m">
-        <Column maxWidth="s" horizontal="center" align="center">
-          {home.featured.display && (
-            <RevealFx
-              fillWidth
-              horizontal="center"
-              paddingTop="16"
-              paddingBottom="32"
-              paddingLeft="12"
-            >
-              <Badge
-                background="brand-alpha-weak"
-                paddingX="12"
-                paddingY="4"
-                onBackground="neutral-strong"
-                textVariant="label-default-s"
-                arrow={false}
-                href={home.featured.href}
-              >
-                <Row paddingY="2">{home.featured.title}</Row>
-              </Badge>
-            </RevealFx>
-          )}
-          <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16">
-            <Heading wrap="balance" variant="display-strong-l">
-              {home.headline}
-            </Heading>
-          </RevealFx>
-          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32">
-            <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
-              {home.subline}
-            </Text>
-          </RevealFx>
-          <RevealFx paddingTop="12" delay={0.4} horizontal="center" paddingLeft="12">
-            <Button
-              id="about"
-              data-border="rounded"
-              href={about.path}
-              variant="secondary"
-              size="m"
-              weight="default"
-              arrowIcon
-            >
-              <Row gap="8" vertical="center" paddingRight="4">
-                {about.avatar.display && (
-                  <Avatar
-                    marginRight="8"
-                    style={{ marginLeft: "-0.75rem" }}
-                    src={person.avatar}
-                    size="m"
-                  />
-                )}
-                {about.title}
+
+      {/* About Section (Now Home) */}
+      <Column
+        id="home"
+        fillWidth
+        maxWidth="m"
+        paddingX="l"
+        gap="xl"
+        style={{ minHeight: "100vh" }}
+        vertical="center"
+      >
+        <Row fillWidth s={{ direction: "column" }} horizontal="center" gap="xl">
+          {about.avatar.display && (
+            <Column fitHeight minWidth="160" gap="m" horizontal="center" flex={3}>
+              <AvatarGlow src={person.avatar} size="xl" />
+              <Row gap="8" vertical="center">
+                <Icon onBackground="accent-weak" name="globe" />
+                {person.location}
               </Row>
-            </Button>
-          </RevealFx>
-        </Column>
+              {person.languages && person.languages.length > 0 && (
+                <Row wrap gap="8">
+                  {person.languages.map((language) => (
+                    <Tag key={language} size="l">
+                      {language}
+                    </Tag>
+                  ))}
+                </Row>
+              )}
+            </Column>
+          )}
+          <Column flex={9} gap="xl">
+            <Column fillWidth gap="m">
+              <Heading variant="display-strong-xl">{person.name}</Heading>
+              <Column gap="4">
+                <Text variant="display-default-xs" onBackground="neutral-weak">
+                  {person.role}
+                </Text>
+                {about.calendar.display && (
+                  <Row
+                    fitWidth
+                    border="brand-alpha-medium"
+                    background="brand-alpha-weak"
+                    radius="full"
+                    padding="4"
+                    gap="8"
+                    vertical="center"
+                    style={{
+                      backdropFilter: "blur(var(--static-space-1))",
+                    }}
+                  >
+                    <Icon paddingLeft="12" name="calendar" onBackground="brand-weak" />
+                    <Row paddingX="8">Schedule a call</Row>
+                    <IconButton
+                      href={about.calendar.link}
+                      data-border="rounded"
+                      variant="secondary"
+                      icon="chevronRight"
+                    />
+                  </Row>
+                )}
+              </Column>
+              {social.length > 0 && (
+                <Row gap="8" wrap>
+                  {social.map(
+                    (item) =>
+                      item.link && (
+                        <IconButton
+                          key={item.name}
+                          href={item.link}
+                          icon={item.icon}
+                          variant="secondary"
+                        />
+                      ),
+                  )}
+                </Row>
+              )}
+            </Column>
+            <Column id="about" fillWidth gap="m">
+              <Text variant="body-default-l" onBackground="neutral-weak">
+                {about.intro.description}
+              </Text>
+            </Column>
+            {about.work.display && (
+              <Column gap="m">
+                <Heading as="h2" variant="display-strong-s">
+                  {about.work.title}
+                </Heading>
+                {about.work.experiences.map((exp) => (
+                  <Column key={`${exp.company}-${exp.role}`} gap="4">
+                    <Row horizontal="between" vertical="end">
+                      <Text variant="heading-strong-l">{exp.company}</Text>
+                      <Text variant="heading-default-xs" onBackground="neutral-weak">
+                        {exp.timeframe}
+                      </Text>
+                    </Row>
+                    <Text variant="body-default-s" onBackground="brand-weak">
+                      {exp.role}
+                    </Text>
+                    <Column as="ul" gap="8" paddingLeft="16">
+                      {exp.achievements.map((ach, j) => (
+                        <Text as="li" key={`${exp.company}-${j}`} variant="body-default-m">
+                          {ach}
+                        </Text>
+                      ))}
+                    </Column>
+                  </Column>
+                ))}
+              </Column>
+            )}
+          </Column>
+        </Row>
       </Column>
-      <RevealFx translateY="16" delay={0.6}>
-        <Projects range={[1, 1]} />
-      </RevealFx>
-      <Projects range={[2]} />
+
       <Mailchimp />
     </Column>
   );

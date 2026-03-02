@@ -4,7 +4,7 @@ import { Line, Logo, Row, Text } from "@once-ui-system/core";
 const person: Person = {
   firstName: "Utkarsh",
   lastName: "Yadav",
-  name: `Utkarsh Yadav`,
+  name: "Utkarsh Yadav",
   role: "Software Developer",
   avatar: "/images/utkarsh.jpg",
   email: "utkarshyadav6745@gmail.com",
@@ -51,7 +51,7 @@ const home: Home = {
   description: `Portfolio website showcasing my work as a ${person.role}`,
   headline: <>A passionate React Developer from India</>,
   featured: {
-    display: true,
+    display: false,
     title: (
       <Row gap="12" vertical="center">
         <Text marginRight="4" onBackground="brand-medium">
@@ -107,18 +107,9 @@ const about: About = {
         timeframe: "2025 - Present",
         role: "Software Developer",
         achievements: [
-          <>
-            Developed and maintained multiple React-based web applications, improving user
-            engagement and application performance by 40%.
-          </>,
-          <>
-            Built responsive and scalable frontend solutions using React, Next.js, and modern
-            JavaScript frameworks, reducing load times by 30%.
-          </>,
-          <>
-            Collaborated with cross-functional teams to deliver high-quality software solutions,
-            following agile methodologies and best practices.
-          </>,
+          "Developed and maintained multiple React-based web applications, improving user engagement and application performance by 40%.",
+          "Built responsive and scalable frontend solutions using React, Next.js, and modern JavaScript frameworks, reducing load times by 30%.",
+          "Collaborated with cross-functional teams to deliver high-quality software solutions, following agile methodologies and best practices.",
         ],
         images: [
           {
@@ -134,15 +125,9 @@ const about: About = {
         timeframe: "2023 - 2024",
         role: "Web Developer",
         achievements: [
-          <>
-            Designed and implemented dynamic user interfaces for variety of client projects using
-            modern JavaScript frameworks.
-          </>,
-          <>Streamlined web development workflows by implementing reusable component libraries.</>,
-          <>
-            Optimized website performance and SEO, resulting in improved search engine rankings and
-            user retention.
-          </>,
+          "Designed and implemented dynamic user interfaces for variety of client projects using modern JavaScript frameworks.",
+          "Streamlined web development workflows by implementing reusable component libraries.",
+          "Optimized website performance and SEO, resulting in improved search engine rankings and user retention.",
         ],
         images: [
           {
@@ -158,18 +143,9 @@ const about: About = {
         timeframe: "2022 - 2023",
         role: "Frontend Developer Trainee",
         achievements: [
-          <>
-            Assisted in building and styling web pages using HTML5, CSS3, and JavaScript best
-            practices.
-          </>,
-          <>
-            Gained hands-on experience with React.js while supporting senior developers in feature
-            implementation.
-          </>,
-          <>
-            Participated in code reviews and learned about industry-standard version control and
-            development cycles.
-          </>,
+          "Assisted in building and styling web pages using HTML5, CSS3, and JavaScript best practices.",
+          "Gained hands-on experience with React.js while supporting senior developers in feature implementation.",
+          "Participated in code reviews and learned about industry-standard version control and development cycles.",
         ],
         images: [],
       },
@@ -181,12 +157,8 @@ const about: About = {
     institutions: [
       {
         name: "Bachelor's Degree in Computer Science from SRM University",
-        description: (
-          <>
-            Studied software engineering. Specialized in Data Structures and Artificial Intelligence
-            (DS/AI).
-          </>
-        ),
+        description:
+          "Studied software engineering. Specialized in Data Structures and Artificial Intelligence (DS/AI).",
       },
     ],
   },
@@ -196,13 +168,8 @@ const about: About = {
     skills: [
       {
         title: "React & Next.js",
-        description: (
-          <>
-            Building modern, scalable web applications with React and Next.js. 3 years of hands-on
-            experience in developing responsive user interfaces and server-side rendered
-            applications.
-          </>
-        ),
+        description:
+          "Building modern, scalable web applications with React and Next.js. 3 years of hands-on experience in developing responsive user interfaces and server-side rendered applications.",
         tags: [
           {
             name: "React",
@@ -228,12 +195,8 @@ const about: About = {
       },
       {
         title: "Frontend Development",
-        description: (
-          <>
-            Expertise in modern frontend technologies including HTML5, CSS3, JavaScript, and various
-            CSS frameworks. Proficient in building responsive and accessible web applications.
-          </>
-        ),
+        description:
+          "Expertise in modern frontend technologies including HTML5, CSS3, JavaScript, and various CSS frameworks. Proficient in building responsive and accessible web applications.",
         tags: [
           {
             name: "JavaScript",
@@ -251,12 +214,8 @@ const about: About = {
       },
       {
         title: "DevOps & Tools",
-        description: (
-          <>
-            Currently learning Docker and Kubernetes for containerization and orchestration.
-            Familiar with Git, version control, and modern development workflows.
-          </>
-        ),
+        description:
+          "Currently learning Docker and Kubernetes for containerization and orchestration. Familiar with Git, version control, and modern development workflows.",
         tags: [
           {
             name: "Docker",
@@ -284,15 +243,6 @@ const blog: Blog = {
   description: `Read what ${person.name} has been up to recently`,
   // Create new blog posts by adding a new .mdx file to app/blog/posts
   // All posts will be listed on the /blog route
-};
-
-const work: Work = {
-  path: "/work",
-  label: "Work",
-  title: `Projects – ${person.name}`,
-  description: `Design and dev projects by ${person.name}`,
-  // Create new project pages by adding a new .mdx file to src/app/work/projects
-  // All projects will be listed on the /home and /work routes
 };
 
 const gallery: Gallery = {
@@ -346,4 +296,4 @@ const gallery: Gallery = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+export { person, social, newsletter, home, about };

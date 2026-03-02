@@ -18,10 +18,10 @@ const baseURL: string = "https://yourdomain.com"; // TODO: Update with your actu
 
 const routes: RoutesConfig = {
   "/": true,
-  "/about": true,
-  "/work": true,
-  "/blog": true,
-  "/gallery": true,
+  "/about": false,
+  "/work": false,
+  "/blog": false,
+  "/gallery": false,
 };
 
 const display: DisplayConfig = {
